@@ -38,9 +38,11 @@ Action cmdExec_Once(int client, int args) {
 }
 
 Action cmdReset_Once(int client, int args) {
-	int count = g_aCmdList.Length;
-	g_aCmdList.Clear();
 	g_bExecuted = false;
+
+	int count = g_aCmdList.Length;
+	delete g_aCmdList;
+	g_aCmdList = new ArrayList(ByteCountToCells(255));
 
 	ReplyToCommand(client, "已重置 %d 条命令", count);
 	return Plugin_Handled;
@@ -74,8 +76,11 @@ void NextFrame_Executed() {
 }
 
 void ExecuteCmdList() {
-	char command[255];
 	ArrayList aCmdList = g_aCmdList.Clone();
+	delete g_aCmdList;
+	g_aCmdList = new ArrayList(ByteCountToCells(255));
+
+	char command[255];
 	int count = aCmdList.Length;
 	for (int i; i < count; i++) {
 		aCmdList.GetString(i, command, sizeof command);
