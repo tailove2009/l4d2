@@ -160,7 +160,7 @@ int
 
 bool
 	g_bAggressive,
-	g_bTankHpSet[MAXPLAYERS + 0];
+	g_bTankHpSet[MAXPLAYERS + 1];
 
 public Plugin myinfo = {
 	name = PLUGIN_NAME,
@@ -171,8 +171,8 @@ public Plugin myinfo = {
 };
 
 public void OnPluginStart() {
-	g_cvTankHpMin =		CreateConVar("boss_health_tank_min",	"7000",	"tank最低血量", _, true, 1.0);
-	g_cvTankHpMax =		CreateConVar("boss_health_tank_max",	"9000",	"tank最高血量", _, true, 1.0);
+	g_cvTankHpMin =		CreateConVar("boss_health_tank_min",	"5000",	"tank最低血量", _, true, 1.0);
+	g_cvTankHpMax =		CreateConVar("boss_health_tank_max",	"6000",	"tank最高血量", _, true, 1.0);
 	g_cvWitchHpMin =	CreateConVar("boss_health_witch_min",	"1000",	"witch最低血量", _, true, 1.0);
 	g_cvWitchHpMax =	CreateConVar("boss_health_witch_max",	"1000",	"witch最高血量", _, true, 1.0);
 	g_cvAggressive =	CreateConVar("boss_aggressive_tanks",	"0", 	"AI Tank出生后立即开始攻击而不是原地待命?");
