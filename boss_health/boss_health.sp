@@ -160,7 +160,7 @@ int
 
 bool
 	g_bAggressive,
-	g_bTankHpSet[MAXPLAYERS + 1];
+	g_bTankHpSet[MAXPLAYERS + 0];
 
 public Plugin myinfo = {
 	name = PLUGIN_NAME,
